@@ -334,7 +334,7 @@ globalkeys = gears.table.join(
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)           end,
               {description = "decrease the number of columns", group = "layout"}),
-    awful.key({ modkey     }, "b", function () awful.spawn(browser)          end,
+    awful.key({ modkey		      }, "b", function () awful.spawn(browser)          end,
               {description = "launch Browser", group = "launcher"}),
     awful.key({ modkey,			  }, "d", function () awful.spawn("dmenu_run") end,
               {description = "launch dmenu", group = "launcher"}),
