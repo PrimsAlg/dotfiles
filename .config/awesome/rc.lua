@@ -47,9 +47,10 @@ beautiful.bg_normal         = "#222D32"
 beautiful.bg_focus          = "#2C3940"
 beautiful.titlebar_close_button_normal = "/usr/share/awesome/themes/cesious/titlebar/close_normal_adapta.png"
 beautiful.titlebar_close_button_focus = "/usr/share/awesome/themes/cesious/titlebar/close_focus_adapta.png"
-beautiful.font              = "Noto Sans Regular 10"
-beautiful.notification_font = "Noto Sans Bold 14"
-beautiful.wallpaper			= "/home/seda/Pictures/046009.png"
+beautiful.font              = "Noto Sans Regular 9"
+beautiful.notification_font = "Noto Sans Bold 10"
+beautiful.wallpaper			= "/home/seda/Pictures/art/Grimshaw/autumn-evening.jpg"
+beautiful.tasklist_disable_task_name = true
 
 -- Add gaps
 beautiful.useless_gap = 6
@@ -77,14 +78,14 @@ awful.layout.layouts = {
     awful.layout.suit.spiral.dwindle,
     awful.layout.suit.fair,
     awful.layout.suit.fair.horizontal,
-    awful.layout.suit.floating,
     awful.layout.suit.max,
     -- awful.layout.suit.max.fullscreen,
-    -- awful.layout.suit.magnifier,
+    awful.layout.suit.magnifier,
     awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
     -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
+    awful.layout.suit.floating,
 }
 -- }}}
 
@@ -232,7 +233,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({ height = 25, position = "top", screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -241,16 +242,33 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mylauncher,
             s.mytaglist,
-            s.mypromptbox,
             separator,
+            s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             wibox.widget.systray(),
             --mykeyboardlayout,
-            --separator,
+			separator,
             mytextclock,
+			separator,
+			awful.widget.layoutlist { -- Layouts
+				screen = 1,
+				style = {
+					disable_name = true,
+					spacing      = 0,
+				},
+                source = function() return {
+                    awful.layout.suit.tile,
+                    awful.layout.suit.spiral.dwindle,
+                    awful.layout.suit.fair,
+                    awful.layout.suit.magnifier,
+                    awful.layout.suit.corner.nw,
+                    awful.layout.suit.floating,
+                } end
+			},
+			separator,
             s.mylayoutbox,
         },
     }
@@ -311,12 +329,34 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
+	awful.key({ modkey,    "Mod1" }, "1", function() awful.layout.set(awful.layout.suit.tile)           end,
+              {description = "set master/stack", group = "layout"}),
+	awful.key({ modkey,    "Mod1" }, "2", function() awful.layout.set(awful.layout.suit.spiral.dwindle) end,
+              {description = "set dwindle", group = "layout"}),
+	awful.key({ modkey,    "Mod1" }, "3", function() awful.layout.set(awful.layout.suit.fair)           end,
+              {description = "set fair", group = "layout"}),
+	awful.key({ modkey,    "Mod1" }, "4", function() awful.layout.set(awful.layout.suit.magnifier)      end,
+              {description = "set magnifier", group = "layout"}),
+	awful.key({ modkey,    "Mod1" }, "5", function() awful.layout.set(awful.layout.suit.corner.nw)      end,
+              {description = "set corner-nw", group = "layout"}),
+	awful.key({ modkey,    "Mod1" }, "6", function() awful.layout.set(awful.layout.suit.floating)       end,
+              {description = "set floating", group = "layout"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn("alacritty") end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey,           }, "z", function () awful.spawn("alacritty") end,
-              {description = "open a terminal", group = "launcher"}),
+
+    -- Spawn temporary terminal
+    awful.key({ modkey,    "Mod1" }, "Return",
+              function ()
+                  awful.spawn("alacritty", {
+                      floating  = true,
+                      tag       = mouse.screen.selected_tag,
+                      placement = awful.placement.centered,
+                  })
+              end,
+              {description = "open a floating terminal", group = "launcher"}),
+
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,

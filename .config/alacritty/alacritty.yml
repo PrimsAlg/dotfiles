@@ -97,7 +97,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: Inconsolata
+    family: mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -108,7 +108,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Inconsolata
+    family: mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -119,30 +119,30 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: Inconsolata
+    family: mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Italic
 
   # Bold italic font face
-  #bold_italic:
+  bold_italic:
     # Font family
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    #family: monospace
+    family: mononoki Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    #style: Bold Italic
+    style: Bold Italic
 
   # Point size
-  size: 12.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
-  #offset:
-  #  x: 0
-  #  y: 0
+  offset:
+    x: 0
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -174,8 +174,8 @@ font:
 colors:
   # Default colors
   primary:
-    background: '#2a2139'
-    foreground: '#f0eff1'
+    background: '#4c3a40'
+    foreground: '#fbf1c7'
 
     # Bright and dim foreground colors
     #
@@ -212,25 +212,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '#333333'
-    red:     '#f8818e'
-    green:   '#6bb48d'
-    yellow:  '#ffc800'
-    blue:    '#8ed0ce'
-    magenta: '#5e468c'
-    cyan:    '#1b8f87'
-    white:   '#e2d8cd'
+    black:   '#282828'
+    red:     '#cc241d'
+    green:   '#98971a'
+    yellow:  '#d79921'
+    blue:    '#458588'
+    magenta: '#b16286'
+    cyan:    '#689d6a'
+    white:   '#a89984'
 
   # Bright colors
   bright:
-    black:   '#3d3d3d'
-    red:     '#fb3d66'
-    green:   '#92d3a2'
-    yellow:  '#ffdb58'
-    blue:    '#39a7a2'
-    magenta: '#7e62b3'
-    cyan:    '#39cfac'
-    white:   '#e2d8cd'
+    black:   '#928374'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#ebdbb2'
 
   # Dim colors
   #
@@ -286,7 +286,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.75
+background_opacity: 0.85
 
 #selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

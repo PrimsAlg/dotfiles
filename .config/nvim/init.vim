@@ -9,16 +9,21 @@ call plug#begin('~/local/share/nvim/plugged')
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'lilydjwg/colorizer'
-    Plug 'wadackel/vim-dogrun'
+    " Themes
+	Plug 'dracula/vim',{'as':'dracula'}
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'stillwwater/vim-nebula'
+    Plug 'yuttie/hydrangea-vim'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
-colorscheme dogrun
+colorscheme gruvbox
 
-set guifont=Noto\ Mono\ for\ Powerline
+set guifont=mononoki\ Nerd\ Font
 set noerrorbells
 set tabstop=4 softtabstop=4
 set shiftwidth=4
-" set expandtab
+set expandtab
 set smartindent
 set number 
 set relativenumber
@@ -28,12 +33,14 @@ set noswapfile
 set undodir=~/.config/nvim/undodir
 set undofile
 set incsearch
+set termguicolors
 
-let g:airline_theme = 'bubblegum'
+let g:airline_theme = 'gruvbox'
 let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+let g:airline_left_sep = "\ue0b4"
+let g:airline_right_sep = "\ue0b6"
 
+" Allows nvim to use alacritty background
 hi! Normal ctermbg=NONE guibg=NONE
 hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
 
