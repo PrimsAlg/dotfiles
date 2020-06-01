@@ -5,18 +5,23 @@ syntax on
 " ------------------------------------------------------------
 call plug#begin('~/local/share/nvim/plugged')
 
+    " tpope da goat
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-commentary'
+
+    " idk what these do
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'scrooloose/syntastic'
     Plug 'scrooloose/nerdcommenter'
+    Plug 'sheerun/vim-polyglot'
+    Plug 'lilydjwg/colorizer'
 
     " Pair brackets, parens, quotes, etc.
     Plug 'jiangmiao/auto-pairs'
 
     " Automatically clear search highlights after cursor movement
     Plug 'haya14busa/is.vim'
-
-    Plug 'sheerun/vim-polyglot'
-    Plug 'lilydjwg/colorizer'
 
     " Open autocomplete automatically
     Plug 'vim-scripts/AutoComplPop'
