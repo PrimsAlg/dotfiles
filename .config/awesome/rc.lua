@@ -345,17 +345,10 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn("alacritty") end,
               {description = "open a terminal", group = "launcher"}),
-
-    -- Spawn temporary terminal
-    awful.key({ modkey,    "Mod1" }, "Return",
-              function ()
-                  awful.spawn("alacritty", {
-                      floating  = true,
-                      tag       = mouse.screen.selected_tag,
-                      placement = awful.placement.centered,
-                  })
-              end,
+    awful.key({ modkey,    "Mod1" }, "Return", function () awful.spawn("alacritty --class floating-term") end,
               {description = "open a floating terminal", group = "launcher"}),
+    awful.key({ modkey,           }, "p", function () awful.spawn("alacritty --class floating-term -e python") end,
+              {description = "open a floating python window", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -413,10 +406,10 @@ globalkeys = gears.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"}),
+              {description = "lua execute prompt", group = "awesome"})
     -- Menubar
-    awful.key({ modkey }, "p", function() menubar.show() end,
-              {description = "show the menubar", group = "launcher"})
+    --awful.key({ modkey, "Mod1" }, "p", function() menubar.show() end,
+              --{description = "show the menubar", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -566,6 +559,17 @@ awful.rules.rules = {
           "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
         }
       }, properties = { floating = true }},
+
+    -- Floating terminals
+    { rule_any = { instance = { "floating-term" }},
+        properties = {
+            screen    = awful.screen.focused,
+            tag       = mouse.screen.selected_tag,
+            width     = 1200,
+            placement = awful.placement.centered,
+            floating  = true
+        }
+    },
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" } },

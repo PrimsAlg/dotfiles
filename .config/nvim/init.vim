@@ -1,48 +1,110 @@
 syntax on
 
+" ------------------------------------------------------------
+"  Plug
+" ------------------------------------------------------------
 call plug#begin('~/local/share/nvim/plugged')
+
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'scrooloose/syntastic'
     Plug 'scrooloose/nerdcommenter'
+
+    " Pair brackets, parens, quotes, etc.
     Plug 'jiangmiao/auto-pairs'
+
+    " Automatically clear search highlights after cursor movement
+    Plug 'haya14busa/is.vim'
+
     Plug 'sheerun/vim-polyglot'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
     Plug 'lilydjwg/colorizer'
+
+    " Open autocomplete automatically
+    Plug 'vim-scripts/AutoComplPop'
+
+    " Code Snippets; utlisnips is engine, vim-snippets contains snippets
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+
     " Themes
 	Plug 'dracula/vim',{'as':'dracula'}
     Plug 'arcticicestudio/nord-vim'
     Plug 'stillwwater/vim-nebula'
     Plug 'yuttie/hydrangea-vim'
     Plug 'morhetz/gruvbox'
+
+    " lightline status line
+    Plug 'itchyny/lightline.vim'
+
 call plug#end()
 
+" ------------------------------------------------------------
+"  Appearance
+" ------------------------------------------------------------
+
+"  lightline settings
+let g:lightline = {
+      \ 'colorscheme': 'seoul256',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename' ] ],
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \ },
+      \ }
+
+function! LightlineFilename()
+    let filename = expand('%:f') !=# '' ? expand('%:f') : '[No Name]'
+    let modified = &modified ? ' +' : ''
+    return filename . modified
+endfunction
+
+" colorscheme
 colorscheme gruvbox
 
-set guifont=mononoki\ Nerd\ Font
-set noerrorbells
-set tabstop=4 softtabstop=4
-set shiftwidth=4
+" ------------------------------------------------------------
+"  Variables
+" ------------------------------------------------------------
+set complete+=kspell
+set completeopt=menuone,longest
 set expandtab
-set smartindent
+set guifont=mononoki\ Nerd\ Font
+set incsearch
+set noerrorbells
+set noshowmode
+set noswapfile
+set nowrap
 set number 
 set relativenumber
-set nowrap
+set shiftwidth=4
+set shortmess+=c
+set smartindent
 set smartcase
-set noswapfile
+set tabstop=4 softtabstop=4
+set termguicolors
 set undodir=~/.config/nvim/undodir
 set undofile
-set incsearch
-set termguicolors
 
-let g:airline_theme = 'gruvbox'
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = "\ue0b4"
-let g:airline_right_sep = "\ue0b6"
+" Set python3 source executable
+let g:python3_host_prog="/usr/bin/python3"
 
-" Allows nvim to use alacritty background
-hi! Normal ctermbg=NONE guibg=NONE
-hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
+" UltiSnips Keybinds
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" ------------------------------------------------------------
+"  Keybinds
+" ------------------------------------------------------------
+
+" Insert complete menu selection with return
+inoremap <expr> <CR> pumvisible() ? "<C-y>" : "<CR>"
 
 " Makes Y copy to end of line
 noremap Y y$
+
+" ------------------------------------------------------------
+"  Other
+" ------------------------------------------------------------
+" Allows nvim to use alacritty background
+hi! Normal ctermbg=NONE guibg=NONE
+hi! NonText ctermbg=NONE guibg=NONE guifg=NONE ctermfg=NONE
