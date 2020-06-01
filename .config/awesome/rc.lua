@@ -57,7 +57,7 @@ beautiful.useless_gap = 6
 beautiful.gap_single_client = true
 
 -- This is used later as the default terminal and editor to run.
-browser = "exo-open --launch WebBrowser" or "firefox"
+browser = "exo-open --launch WebBrowser" or "qutebrowser"
 filemanager = "exo-open --launch FileManager" or "thunar"
 gui_editor = "mousepad"
 terminal = "alacritty" or os.getenv("TERMINAL") 
@@ -368,7 +368,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)           end,
               {description = "decrease the number of columns", group = "layout"}),
     awful.key({ modkey		      }, "b", function () awful.spawn(browser)          end,
-              {description = "launch Browser", group = "launcher"}),
+              {description = "launch qutebrowser", group = "launcher"}),
+    awful.key({ modkey,    "Mod1" }, "b", function () awful.spawn("firefox")          end,
+              {description = "launch firefox", group = "launcher"}),
     awful.key({ modkey,			  }, "d", function () awful.spawn("dmenu_run") end,
               {description = "launch dmenu", group = "launcher"}),
     awful.key({ modkey,           }, "e", function () awful.spawn(filemanager)            end,
