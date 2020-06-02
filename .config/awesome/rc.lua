@@ -329,18 +329,40 @@ globalkeys = gears.table.join(
             end
         end,
         {description = "go back", group = "client"}),
-	awful.key({ modkey,    "Mod1" }, "1", function() awful.layout.set(awful.layout.suit.tile)           end,
-              {description = "set master/stack", group = "layout"}),
+
+	awful.key({ modkey,    "Mod1" }, "1",
+        function()
+            if not (awful.layout.get(awful.screen.focused()) == awful.layout.suit.tile) then
+                awful.layout.set(awful.layout.suit.tile)
+            else
+                awful.layout.set(awful.layout.suit.tile.bottom)
+            end
+        end,
+        {description = "set master/stack", group = "layout"}),
 	awful.key({ modkey,    "Mod1" }, "2", function() awful.layout.set(awful.layout.suit.spiral.dwindle) end,
-              {description = "set dwindle", group = "layout"}),
-	awful.key({ modkey,    "Mod1" }, "3", function() awful.layout.set(awful.layout.suit.fair)           end,
-              {description = "set fair", group = "layout"}),
-	awful.key({ modkey,    "Mod1" }, "4", function() awful.layout.set(awful.layout.suit.magnifier)      end,
-              {description = "set magnifier", group = "layout"}),
+        {description = "set dwindle", group = "layout"}),
+	awful.key({ modkey,    "Mod1" }, "3",
+        function()
+            if not (awful.layout.get(awful.screen.focused()) == awful.layout.suit.fair) then
+                awful.layout.set(awful.layout.suit.fair)
+            else
+                awful.layout.set(awful.layout.suit.fair.horizontal)
+            end
+        end,
+        {description = "set fair/fairh", group = "layout"}),
+	awful.key({ modkey,    "Mod1" }, "4",
+        function()
+            if not (awful.layout.get(awful.screen.focused()) == awful.layout.suit.magnifier) then
+                awful.layout.set(awful.layout.suit.magnifier)
+            else
+                awful.layout.set(awful.layout.suit.max)
+            end
+        end,
+        {description = "set magnifier/max", group = "layout"}),
 	awful.key({ modkey,    "Mod1" }, "5", function() awful.layout.set(awful.layout.suit.corner.nw)      end,
-              {description = "set corner-nw", group = "layout"}),
+        {description = "set corner-nw", group = "layout"}),
 	awful.key({ modkey,    "Mod1" }, "6", function() awful.layout.set(awful.layout.suit.floating)       end,
-              {description = "set floating", group = "layout"}),
+        {description = "set floating", group = "layout"}),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn("alacritty") end,
