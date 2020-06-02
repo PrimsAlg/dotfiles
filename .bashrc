@@ -141,3 +141,6 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
+
+# set nvim as default man page opener
+export MANPAGER='nvim -R +":set ft=man" -'
