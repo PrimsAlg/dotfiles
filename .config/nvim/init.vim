@@ -10,6 +10,9 @@ call plug#begin('~/local/share/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-commentary'
 
+    " fzf
+    Plug 'junegunn/fzf.vim'
+
     " idk what these do
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'scrooloose/syntastic'
@@ -41,6 +44,9 @@ call plug#begin('~/local/share/nvim/plugged')
 
 call plug#end()
 
+" man page syntax highlighting
+runtime! ftplugin/man.vim
+
 " ------------------------------------------------------------
 "  Appearance
 " ------------------------------------------------------------
@@ -50,10 +56,11 @@ let g:lightline = {
       \ 'colorscheme': 'seoul256',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename' ] ],
+      \             [ 'gitbranch', 'readonly', 'filename' ] ],
       \ },
       \ 'component_function': {
       \   'filename': 'LightlineFilename',
+      \   'gitbranch': 'FugitiveHead'
       \ },
       \ }
 
