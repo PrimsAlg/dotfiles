@@ -91,7 +91,7 @@ fi
 unset use_color safe_term match_lhs sh
 
 # aliases
-alias cp="cp -i"                          # confirm before overwriting something
+alias cp='cp -i'                          # confirm before overwriting something
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
@@ -99,6 +99,7 @@ alias more=less
 alias ..='cd ..'
 alias ll='ls -la'
 alias .files='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias :q='exit'
 
 xhost +local:root > /dev/null 2>&1
 
