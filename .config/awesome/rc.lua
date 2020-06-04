@@ -367,9 +367,9 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn("alacritty") end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey,    "Mod1" }, "Return", function () awful.spawn("alacritty --class floating-term") end,
+    awful.key({ modkey,    "Mod1" }, "Return", function () awful.spawn("alacritty --class floating-term -d 120 30") end,
               {description = "open a floating terminal", group = "launcher"}),
-    awful.key({ modkey,           }, "p", function () awful.spawn("alacritty --class floating-term -e python") end,
+    awful.key({ modkey,           }, "p", function () awful.spawn("alacritty --class floating-term -d 120 30 -e python") end,
               {description = "open a floating python window", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart,
@@ -587,9 +587,10 @@ awful.rules.rules = {
     -- Floating terminals
     { rule_any = { instance = { "floating-term" }},
         properties = {
-            screen    = awful.screen.focused,
-            tag       = mouse.screen.selected_tag,
-            width     = 1200,
+            focus     = awful.client.focus.filter,
+            screen    = awful.screen.preferred,
+            --tag       = mouse.screen.selected_tag,
+            --width     = 1200,
             placement = awful.placement.centered,
             floating  = true
         }
