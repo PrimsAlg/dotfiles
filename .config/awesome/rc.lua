@@ -43,14 +43,16 @@ end
 -- Chosen colors and buttons look alike adapta maia theme
 beautiful.init("/usr/share/awesome/themes/cesious/theme.lua")
 beautiful.icon_theme        = "Papirus-Dark"
-beautiful.bg_normal         = "#222D32"
-beautiful.bg_focus          = "#2C3940"
+beautiful.bg_normal         = "#4c3a40"
+beautiful.bg_focus          = "#5e4850"
+beautiful.bg_systray        = "#4c3a40"
 beautiful.titlebar_close_button_normal = "/usr/share/awesome/themes/cesious/titlebar/close_normal_adapta.png"
 beautiful.titlebar_close_button_focus = "/usr/share/awesome/themes/cesious/titlebar/close_focus_adapta.png"
 beautiful.font              = "Noto Sans Regular 9"
 beautiful.notification_font = "Noto Sans Bold 10"
 beautiful.wallpaper			= "/home/seda/Pictures/art/Grimshaw/autumn-evening.jpg"
-beautiful.tasklist_disable_task_name = true
+beautiful.wibar_opacity     = 0.90
+beautiful.tasklist_disable_icon = true
 
 -- Add gaps
 beautiful.useless_gap = 6
@@ -243,12 +245,13 @@ awful.screen.connect_for_each_screen(function(s)
             mylauncher,
             s.mytaglist,
             separator,
+            wibox.widget.systray(),
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        nil,
+        --s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
             --mykeyboardlayout,
 			separator,
             mytextclock,
