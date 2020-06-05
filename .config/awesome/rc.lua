@@ -374,6 +374,8 @@ globalkeys = gears.table.join(
               {description = "open a floating terminal", group = "launcher"}),
     awful.key({ modkey,           }, "p", function () awful.spawn("alacritty --class floating-term -d 120 30 -e python") end,
               {description = "open a floating python window", group = "launcher"}),
+    awful.key({ modkey,           }, "t", function () awful.spawn("emacs ~/Documents/todo.org") end,
+              {description = "open todo.org", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
@@ -454,7 +456,7 @@ clientkeys = gears.table.join(
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
+    awful.key({ modkey,    "Mod1" }, "t",      function (c) c.ontop = not c.ontop            end,
               {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
         function (c)
