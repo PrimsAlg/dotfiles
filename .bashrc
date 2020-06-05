@@ -145,3 +145,6 @@ ex ()
 
 # set nvim as default man page opener
 export MANPAGER='nvim -R +":set ft=man" -'
+
+# load colors from colorfile
+eval $(dircolors ~/.config/colorfile)
