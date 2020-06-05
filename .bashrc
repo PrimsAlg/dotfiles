@@ -70,9 +70,9 @@ if ${use_color} ; then
 	fi
 
 	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;32m\]\u\[\033[33m\]<\[\033[01;34m\]\W\[\033[33m\]>\[\033[00m\]\$ '
+		PS1='\[\033[01;35m\]\u\[\033[33m\]<\[\033[01;36m\]\W\[\033[33m\]>\[\033[00m\]\$ '
 	else
-		PS1='\[\033[01;32m\]\u\[\033[33m\]<\[\033[01;34m\]\W\[\033[33m\]>\[\033[00m\]\$ '
+		PS1='\[\033[01;35m\]\u\[\033[33m\]<\[\033[01;36m\]\W\[\033[33m\]>\[\033[00m\]\$ '
 	fi
 
 	alias ls='ls --color=auto'
@@ -97,7 +97,7 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 alias ..='cd ..'
-alias ll='ls -la'
+alias ll='exa -la'
 alias .files='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias :q='exit'
 
