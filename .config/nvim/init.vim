@@ -81,6 +81,7 @@ set completeopt=menuone,longest
 set expandtab
 set guifont=mononoki\ Nerd\ Font
 set incsearch
+set mouse=a
 set noerrorbells
 set noshowmode
 set noswapfile
