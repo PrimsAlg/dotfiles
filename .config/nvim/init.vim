@@ -87,6 +87,7 @@ set noshowmode
 set noswapfile
 set nowrap
 set number 
+set path+=**
 set relativenumber
 set shiftwidth=4
 set shortmess+=c
