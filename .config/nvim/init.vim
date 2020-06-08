@@ -13,18 +13,20 @@ call plug#begin('~/local/share/nvim/plugged')
     " fzf
     Plug 'junegunn/fzf.vim'
 
+    " enhance syntax highlighting
+    Plug 'sheerun/vim-polyglot'
+
     " idk what these do
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'scrooloose/syntastic'
     Plug 'scrooloose/nerdcommenter'
-    Plug 'sheerun/vim-polyglot'
     Plug 'lilydjwg/colorizer'
 
     " Pair brackets, parens, quotes, etc.
     Plug 'jiangmiao/auto-pairs'
 
     " Automatically clear search highlights after cursor movement
-    Plug 'haya14busa/is.vim'
+    Plug 'haya14busa/is.vim' " TODO: replace with native vim controls to preserve smartcase
 
     " Open autocomplete automatically
     Plug 'vim-scripts/AutoComplPop'
@@ -109,6 +111,11 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " ------------------------------------------------------------
 "  Keybinds
 " ------------------------------------------------------------
+
+" Leader bindings
+noremap <Space> <Nop>
+let mapleader=" "
+nnoremap <Leader>s :w<CR>:source %<CR>
 
 " Insert complete menu selection with return
 inoremap <expr> <CR> pumvisible() ? "<C-y>" : "<CR>"
