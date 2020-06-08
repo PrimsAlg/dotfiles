@@ -333,6 +333,7 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
 
+    -- Layout switching
 	awful.key({ modkey,    "Mod1" }, "1",
         function()
             if not (awful.layout.get(awful.screen.focused()) == awful.layout.suit.tile) then
