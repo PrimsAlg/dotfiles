@@ -13,6 +13,9 @@ call plug#begin('~/local/share/nvim/plugged')
     " fzf
     Plug 'junegunn/fzf.vim'
 
+    " code completion
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
     " enhance syntax highlighting
     Plug 'sheerun/vim-polyglot'
 
@@ -31,7 +34,7 @@ call plug#begin('~/local/share/nvim/plugged')
     Plug 'haya14busa/is.vim' " TODO: replace with native vim controls to preserve smartcase
 
     " Open autocomplete automatically
-    Plug 'vim-scripts/AutoComplPop'
+    " Plug 'vim-scripts/AutoComplPop'
 
     " Code Snippets; utlisnips is engine, vim-snippets contains snippets
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
