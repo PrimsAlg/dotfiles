@@ -298,6 +298,9 @@ globalkeys = gears.table.join(
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
+    awful.key({ modkey,           }, "p", function () awful.spawn("passmenu") end,
+              {description = "run passmenu", group = "launcher"}),
+
     awful.key({ modkey,           }, "j",
         function ()
             awful.client.focus.byidx( 1)
@@ -373,7 +376,7 @@ globalkeys = gears.table.join(
               {description = "open a terminal", group = "launcher"}),
     awful.key({ modkey,    "Mod1" }, "Return", function () awful.spawn("alacritty --class floating-term -d 120 30") end,
               {description = "open a floating terminal", group = "launcher"}),
-    awful.key({ modkey,           }, "p", function () awful.spawn("alacritty --class floating-term -d 120 30 -e python") end,
+    awful.key({ modkey,    "Mod1" }, "p", function () awful.spawn("alacritty --class floating-term -d 120 30 -e python") end,
               {description = "open a floating python window", group = "launcher"}),
     awful.key({ modkey,           }, "t", function () awful.spawn("emacs ~/Documents/todo.org") end,
               {description = "open todo.org", group = "launcher"}),
