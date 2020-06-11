@@ -16,11 +16,13 @@ call plug#begin('~/local/share/nvim/plugged')
     " enhance syntax highlighting
     Plug 'sheerun/vim-polyglot'
 
+    " colorizes hex codes
+    Plug 'lilydjwg/colorizer'
+
     " idk what these do
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'scrooloose/syntastic'
     Plug 'scrooloose/nerdcommenter'
-    Plug 'lilydjwg/colorizer'
 
     " Pair brackets, parens, quotes, etc.
     Plug 'jiangmiao/auto-pairs'
