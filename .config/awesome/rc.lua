@@ -44,6 +44,7 @@ end
 beautiful.init("/usr/share/awesome/themes/cesious/theme.lua")
 beautiful.icon_theme            = "Papirus-Dark"
 beautiful.bg_normal             = "#4c3a40"
+beautiful.fg_normal             = "#fbf1c7"
 beautiful.bg_focus              = "#5e4850"
 beautiful.bg_systray            = "#4c3a40"
 beautiful.titlebar_close_button_normal = "/usr/share/awesome/themes/cesious/titlebar/close_normal_adapta.png"
@@ -150,8 +151,9 @@ mytextclock = wibox.widget.textclock(" %H:%M ")
 darkblue    = beautiful.bg_focus
 blue        = "#9EBABA"
 red         = "#EB8F8F"
-separator   = wibox.widget.textbox(' <span color="' .. blue .. '">| </span>')
-spacer      = wibox.widget.textbox(' <span color="' .. blue .. '"> </span>')
+fg          = beautiful.fg_normal
+separator   = wibox.widget.textbox(' <span color="' .. fg .. '">| </span>')
+spacer      = wibox.widget.textbox(' <span color="' .. fg .. '"> </span>')
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -218,6 +220,20 @@ awful.screen.connect_for_each_screen(function(s)
     -- Each screen has its own tag table.
     awful.tag({ "1", "2", "3", "4", "5", "6" }, s, awful.layout.layouts[1])
 
+    -- Create a systray that is hidden by default
+    s.systray = wibox.widget.systray()
+    s.systray.visible = false
+    s.systray_button = awful.widget.button({image = "/home/seda/.config/awesome/systray_button.png"})
+    s.systray_button:buttons(gears.table.join(
+            awful.button({ }, 1, function ()
+                    if s.systray.visible == false then
+                        s.systray.visible = true
+                    else
+                        s.systray.visible = false
+                    end
+                end
+            )))
+
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
     -- Create an imagebox widget which will contains an icon indicating which layout we're using.
@@ -245,7 +261,8 @@ awful.screen.connect_for_each_screen(function(s)
             mylauncher,
             s.mytaglist,
             separator,
-            wibox.widget.systray(),
+            s.systray_button,
+            s.systray,
             s.mypromptbox,
         },
         nil,
