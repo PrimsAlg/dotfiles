@@ -148,3 +148,6 @@ export MANPAGER='nvim -R +":set ft=man" -'
 
 # load colors from colorfile
 eval $(dircolors ~/.config/colorfile)
+
+# set vi mode
+set -o vi
