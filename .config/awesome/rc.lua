@@ -41,7 +41,7 @@ end
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 -- Chosen colors and buttons look alike adapta maia theme
-beautiful.init("/usr/share/awesome/themes/cesious/theme.lua")
+beautiful.init("/home/seda/.config/awesome/gruvbox/theme.lua")
 beautiful.icon_theme            = "Papirus-Dark"
 beautiful.bg_normal             = "#4c3a40"
 beautiful.fg_normal             = "#fbf1c7"
@@ -251,7 +251,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, tasklist_buttons)
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ height = 25, position = "top", screen = s })
+    s.mywibox = awful.wibar({ height = 24, position = "top", screen = s })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -263,6 +263,7 @@ awful.screen.connect_for_each_screen(function(s)
             separator,
             s.systray_button,
             s.systray,
+            separator,
             s.mypromptbox,
         },
         nil,
