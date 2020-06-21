@@ -1,9 +1,14 @@
 syntax on
 
+" Sources
+source $HOME/.config/nvim/plug-config/coc.vim
+
 " ------------------------------------------------------------
 "  Plug
 " ------------------------------------------------------------
 call plug#begin('~/local/share/nvim/plugged')
+
+    Plug 'ThePrimeagen/vim-be-good', {'do': './install.sh'}
 
     " tpope da goat
     Plug 'tpope/vim-fugitive'
@@ -37,7 +42,7 @@ call plug#begin('~/local/share/nvim/plugged')
     " Plug 'vim-scripts/AutoComplPop'
 
     " Code Snippets; utlisnips is engine, vim-snippets contains snippets
-    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
     " Themes
 	Plug 'dracula/vim',{'as':'dracula'}
