@@ -312,7 +312,7 @@ cursor:
   # the style of the active value of the normal cursor.
   #
   # See `cursor.style` for available options.
-  #vi_mode_style: None
+  vi_mode_style: Block
 
   # If this is `true`, the cursor will be rendered as a hollow box when the
   # window is not focused.
@@ -551,7 +551,7 @@ shell:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # at once.
-#key_bindings:
+# key_bindings:
   #- { key: Paste,                                action: Paste          }
   #- { key: Copy,                                 action: Copy           }
   #- { key: L,         mods: Control,             action: ClearLogNotice }
