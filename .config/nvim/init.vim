@@ -91,7 +91,8 @@ colorscheme gruvbox
 set complete+=kspell
 set completeopt=menuone,longest
 set expandtab
-set guifont=mononoki\ Nerd\ Font
+set formatoptions-=cro
+set guifont=mononoki\Nerd\ Font
 set incsearch
 set mouse=a
 set noerrorbells
@@ -127,7 +128,7 @@ noremap <Space> <Nop>
 let mapleader=" "
 nnoremap <Leader>s :w<CR>:source %<CR>
 
-" Insert complete menu selection with return
+" Insert completion menu selection with return
 inoremap <expr> <CR> pumvisible() ? "<C-y>" : "<CR>"
 
 " Makes Y copy to end of line
