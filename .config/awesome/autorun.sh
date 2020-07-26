@@ -43,4 +43,3 @@ run msm_notifier
 ## Swap caps and escape
 # setxkbmap -option caps:swapescape
 
-run redshift
