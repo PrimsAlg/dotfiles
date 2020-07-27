@@ -26,7 +26,10 @@ theme.border_normal = "#282828"
 theme.border_focus  = "#9E9ECB"
 theme.border_marked = "#9E9ECB"
 
-theme.hotkeys_modifiers_fg = "#8ec07c"
+theme.hotkeys_border_color     = "#9E9ECB"
+theme.hotkeys_modifiers_fg     = "#8ec07c"
+theme.hotkeys_label_bg         = "#fabd2f"
+theme.hotkeys_label_fg         = "#4c3a40"
 
 -- There are other variable sets
 -- overriding the default one when
