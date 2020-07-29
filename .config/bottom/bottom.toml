@@ -70,10 +70,10 @@ hide_table_gap = false
 [colors]
 
 # Represents the colour of table headers (processes, CPU, disks, temperature).
-table_header_color="LightCyan"
+table_header_color="LightYellow"
 
 # Represents the colour of the label each widget has.
-widget_title_color="Cyan"
+widget_title_color="Magenta"
 
 # Represents the average CPU color.
 avg_cpu_color="LightRed"
