@@ -31,13 +31,15 @@ class Default(ColorScheme):
             if context.media:
                 if context.image:
                     fg = yellow
+                    fg += BRIGHT
                 else:
                     fg = magenta
             if context.container:
                 fg = red
+                fg += BRIGHT
             if context.directory:
                 attr |= bold
-                fg = magenta
+                fg = blue
                 fg += BRIGHT
             elif context.executable and not \
                     any((context.media, context.container,
@@ -47,7 +49,7 @@ class Default(ColorScheme):
                 fg += BRIGHT
             if context.socket:
                 attr |= bold
-                fg = magenta
+                fg = cyan
                 fg += BRIGHT
             if context.fifo or context.device:
                 fg = yellow
@@ -93,7 +95,8 @@ class Default(ColorScheme):
             if context.hostname:
                 fg = red if context.bad else green
             elif context.directory:
-                fg = blue
+                fg = cyan
+                fg += BRIGHT
             elif context.tab:
                 if context.good:
                     bg = green
@@ -104,7 +107,8 @@ class Default(ColorScheme):
         elif context.in_statusbar:
             if context.permissions:
                 if context.good:
-                    fg = cyan
+                    fg = magenta
+                    fg += BRIGHT
                 elif context.bad:
                     fg = magenta
             if context.marked:
@@ -113,7 +117,7 @@ class Default(ColorScheme):
                 fg += BRIGHT
             if context.frozen:
                 attr |= bold | reverse
-                fg = cyan
+                fg = magenta
                 fg += BRIGHT
             if context.message:
                 if context.bad:
