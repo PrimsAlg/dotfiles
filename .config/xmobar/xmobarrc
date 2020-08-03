@@ -1,0 +1,24 @@
+Config { font = "xft:mononoki Nerd Font Mono:size=8"
+       , additionalFonts = []
+       , borderColor = "black"
+       , border = NoBorder
+       , bgColor = "#4b335e"
+       , fgColor = "grey"
+       , alpha = 255
+       , position = Top
+       , textOffset = -1
+       , iconOffset = -1
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , iconRoot = "."
+       , allDesktops = True
+       , overrideRedirect = True
+       , commands = [ Run Date "%H:%M" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{ <fc=#fb4d66>%date%</fc> "
+       }
