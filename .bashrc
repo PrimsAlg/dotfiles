@@ -91,10 +91,12 @@ fi
 unset use_color safe_term match_lhs sh
 
 # aliases
-alias btms='btm -C ~/bin/bottom.toml'     # small bottom layout
-alias cp='cp -i'                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias btms='btm -C ~/bin/btms/bottom.toml'     # small bottom layout
+alias btmg='btm -C ~/bin/btmg/bottom.toml'     # gaming bottom layout
+alias cp='cp -i'                               # confirm before overwriting something
+alias date='date '"'"'+%H:%M %a %b %d %Y'"'"   # custom date formatting
+alias df='df -h'                               # human-readable sizes
+alias free='free -m'                           # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 alias ..='cd ..'
