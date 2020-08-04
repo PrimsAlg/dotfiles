@@ -103,12 +103,8 @@ myStartupHook :: X ()
 myStartupHook = do
           spawnOnce "nitrogen --restore &"
           spawnOnce "picom &"
-          -- spawnOnce "nm-applet &"
-          -- spawnOnce "volumeicon &"
-          -- spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x292d3e --height 22 &"
-          -- spawnOnce "/usr/bin/emacs --daemon &"
-          -- spawnOnce "kak -d -s mysession &"
-          -- setWMName "LG3D"
+          -- Disable mouse acceleration
+          spawnOnce "xinput --set-prop 12 'libinput Accel Profile Enabled' 0, 1 &"
 
 -- kept for reference for custom prompts
 -- calcPrompt c ans =
@@ -226,6 +222,7 @@ myKeys =
         , ("M-e", spawn "alacritty -e ranger")
         , ("M-S-e", spawn "alacritty -e ranger /home/seda/.config/")
         , ("M-d", spawn "emacs")
+        , ("M-p", spawn "passmenu -h 20")
 
     -- Windows
         , ("M-q", kill1)                           -- Kill the currently focused client
