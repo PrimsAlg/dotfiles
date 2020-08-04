@@ -83,7 +83,7 @@ function! LightlineFilename()
 endfunction
 
 " colorscheme
-colorscheme gruvbox
+colorscheme PrimsAlg
 
 " ------------------------------------------------------------
 "  Variables
