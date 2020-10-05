@@ -70,9 +70,9 @@ if ${use_color} ; then
 	fi
 
 	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;35m\]\u\[\033[33m\]<\[\033[01;36m\]\W\[\033[33m\]>\[\033[00m\]\$ '
+		PS1='\[\033[01;36m\]\u\[\033[35m\]<\[\033[01;34m\]\W\[\033[35m\]>\[\033[00m\]\$ '
 	else
-		PS1='\[\033[01;35m\]\u\[\033[33m\]<\[\033[01;36m\]\W\[\033[33m\]>\[\033[00m\]\$ '
+		PS1='\[\033[01;36m\]\u\[\033[35m\]<\[\033[01;34m\]\W\[\033[35m\]>\[\033[00m\]\$ '
 	fi
 
 	alias ls='ls --color=auto'
@@ -148,6 +148,8 @@ ex ()
 
 # set nvim as default man page opener
 export MANPAGER='nvim -R +":set ft=man" -'
+
+export RACK_DIR=/home/seda/bin/Rack-dev/
 
 # load colors from colorfile
 eval $(dircolors ~/.config/colorfile)
