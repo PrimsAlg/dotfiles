@@ -65,7 +65,7 @@ runtime! ftplugin/man.vim
 
 "  lightline settings
 let g:lightline = {
-      \ 'colorscheme': 'seoul256',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename' ] ],
@@ -83,7 +83,7 @@ function! LightlineFilename()
 endfunction
 
 " colorscheme
-colorscheme PrimsAlg
+colorscheme nord
 
 " ------------------------------------------------------------
 "  Variables
